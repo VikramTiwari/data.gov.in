@@ -1,0 +1,33 @@
+application: datagovin
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /
+  static_files: index.html
+  upload: index.html
+
+- url: /pages/(.*)
+  static_files: pages/\1
+  upload: pages/.*
+
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+
+- url: /robots.txt
+  static_files: robots.txt
+  upload: robots.txt
+
+- url: /bower_components/(.*)
+  static_files: bower_components/\1
+  upload: bower_components/.*
+
+- url: /service/(.*)
+  static_files: service/\1
+  upload: service/.*
+
+skip_files:
+- ^(.*/)?node_modules/.*
