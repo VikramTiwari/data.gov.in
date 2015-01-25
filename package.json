@@ -1,0 +1,24 @@
+{
+  "name": "data.gov.in",
+  "version": "1.0.0",
+  "description": "data.gov.in ===========",
+  "main": "server.js",
+  "dependencies": {
+    "restify": "^2.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VikramTiwari/data.gov.in.git"
+  },
+  "author": "Vikram Tiwari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VikramTiwari/data.gov.in/issues"
+  },
+  "homepage": "https://github.com/VikramTiwari/data.gov.in"
+}
