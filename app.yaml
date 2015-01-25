@@ -29,5 +29,9 @@ handlers:
   static_files: service/\1
   upload: service/.*
 
+- url: /api/(.*)
+  static_files: api/\1
+  upload: api/.*
+
 skip_files:
 - ^(.*/)?node_modules/.*
