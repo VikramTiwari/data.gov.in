@@ -1,18 +1,18 @@
 <link rel="import" href="../bower_components/polymer/polymer.html">
 <link rel="import" href="../bower_components/core-ajax/core-ajax.html">
 
-<polymer-element name="opendata-liabilities-service" attributes="result">
+<polymer-element name="opendata-export-service" attributes="result">
     <template>
         <style>
         :host {
             display: none;
         }
         </style>
-        <core-ajax id="ajax" auto url='/api/164578-total-liabilites.json' on-core-response="{{loaded}}" handleAs="json">
+        <core-ajax id="ajax" auto url='/api/157024-export-principal-commodity.json' on-core-response="{{loaded}}" handleAs="json">
         </core-ajax>
     </template>
     <script>
-    Polymer('opendata-liabilities-service', {
+    Polymer('opendata-export-service', {
         created: function() {
             this.result = [];
         },

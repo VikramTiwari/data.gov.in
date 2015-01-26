@@ -1,0 +1,147 @@
+<!-- State/UTs wise Public Debt (Total Liabilities) as % of Revenue Receipt from 1997-98 to 2013-14 (as on 30 Nov., 2014) -->
+
+<!-- data from http://www.data.gov.in/node/164578/datastore/export/json -->
+
+<link rel="import" href="/bower_components/core-scroll-header-panel/core-scroll-header-panel.html">
+<link rel="import" href="/bower_components/core-scroll-header-panel/demos/sample-content.html">
+<link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
+<link rel="import" href="/bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="/bower_components/sortable-table/sortable-table.html">
+<link rel="import" href="/service/opendata-export-service.html">
+<link rel="stylesheet" href="/bower_components/sortable-table/css/bootstrap.css" shim-shadowdom>
+
+<polymer-element name="opendata-export-page">
+
+    <template>
+        <opendata-export-service id="service" result="{{result}}"></opendata-export-service>
+        <style>
+        a {
+            color: #f1f1f1;
+        }
+        core-scroll-header-panel {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #eee;
+        }
+        #core_card {
+            position: relative;
+            top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            height: 90%;
+            border-radius: 2px;
+            box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+            background-color: rgb(255, 255, 255);
+            font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+            padding: 24px;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-touch-callout: none;
+        }
+        /* background for toolbar when it is at its full size */
+        
+        core-scroll-header-panel::shadow #headerBg {
+            background-image: url(/bower_components/core-scroll-header-panel/demos/images/bg9.jpg);
+        }
+        /* background for toolbar when it is condensed */
+        
+        core-scroll-header-panel::shadow #condensedHeaderBg {
+            background-color: #f4b400;
+        }
+        core-toolbar {
+            color: #f1f1f1;
+            fill: #f1f1f1;
+            background-color: transparent;
+        }
+        .title {
+            -webkit-transform-origin: 0;
+            transform-origin: 0;
+            font-size: 40px;
+        }
+        .content {
+            padding: 8px;
+        }
+        table {
+            border: 1px solid black;
+        }
+        google-chart {
+            height: 300px;
+            width: 50em;
+        }
+        </style>
+
+        <core-scroll-header-panel condenses>
+
+            <core-toolbar class="tall">
+
+                <a href="/#/home">
+                    <core-icon-button icon="arrow-back"></core-icon-button>
+                </a>
+                <div flex></div>
+                <core-icon-button icon="search"></core-icon-button>
+                <core-icon-button icon="more-vert"></core-icon-button>
+                <div class="bottom indent title">Exports</div>
+
+            </core-toolbar>
+
+            <div class="content">
+                <core-card id="core_card" layout vertical>
+                    <h3>Summary</h3>
+                    <p>India's Export data for Principal Commodity of April to August 2014 and April to August 2013</p>
+                </core-card>
+                <core-card id="core_card" layout vertical>
+                    <h3>Sortable Table</h3>
+                    <sortable-table columns="['State/UTs','1997-98','1998-99','1999-2000', '2000-01', '2001-02', '2002-03', '2003-04', '2004-05', '2005-06', '2006-07', '2007-08', '2008-09', '2009-10', '2010-11', '2011-12 (Pre Actual)', '2012-13 (Pre. Actual)', '2013-14 (BE)']" data="{{result.data}}">
+                    </sortable-table>
+                </core-card>
+                <core-card id="core_card" layout vertical>
+                    <h3>Raw Data</h3>
+                    <table>
+                        <caption>India's Export data for Principal Commodity of April to August 2014 and April to August 2013</caption>
+                        <thead>
+                            <tr>
+                                <template repeat="{{field in result.fields}}">
+                                    <th>{{field.label}}</th>
+                                </template>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template repeat="{{data in result.data}}">
+                                <tr>
+                                    <td>{{data[0]}}</td>
+                                    <td>{{data[1]}}</td>
+                                    <td>{{data[2]}}</td>
+                                    <td>{{data[3]}}</td>
+                                    <td>{{data[4]}}</td>
+                                    <td>{{data[5]}}</td>
+                                    <td>{{data[6]}}</td>
+                                    <td>{{data[7]}}</td>
+                                    <td>{{data[8]}}</td>
+                                    <td>{{data[9]}}</td>
+                                    <td>{{data[10]}}</td>
+                                    <td>{{data[11]}}</td>
+                                    <td>{{data[12]}}</td>
+                                    <td>{{data[13]}}</td>
+                                    <td>{{data[14]}}</td>
+                                    <td>{{data[15]}}</td>
+                                    <td>{{data[16]}}</td>
+                                    <td>{{data[17]}}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </core-card>
+            </div>
+        </core-scroll-header-panel>
+    </template>
+
+    <script>
+    Polymer({
+
+    });
+    </script>
+
+</polymer-element>
