@@ -6,7 +6,9 @@
 <link rel="import" href="/bower_components/core-scroll-header-panel/demos/sample-content.html">
 <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="/bower_components/core-icon-button/core-icon-button.html">
+<link rel="import" href="/bower_components/sortable-table/sortable-table.html">
 <link rel="import" href="/service/opendata-liabilities-service.html">
+<link rel="stylesheet" href="/bower_components/sortable-table/css/bootstrap.css" shim-shadowdom>
 
 <polymer-element name="opendata-liabilities-page">
 
@@ -62,8 +64,12 @@
         .content {
             padding: 8px;
         }
-        table{
-        	border: 1px solid black;
+        table {
+            border: 1px solid black;
+        }
+        google-chart {
+            height: 300px;
+            width: 50em;
         }
         </style>
 
@@ -85,6 +91,11 @@
                 <core-card id="core_card" layout vertical>
                     <h3>Summary</h3>
                     <p>State/UTs wise Public Debt (Total Liabilities) as % of Revenue Receipt from 1997-98 to 2013-14 (as on 30 Nov., 2014)</p>
+                </core-card>
+                <core-card id="core_card" layout vertical>
+                    <h3>Sortable Table</h3>
+                    <sortable-table columns="{{result.fields.label}}" data="{{result.data}}">
+                    </sortable-table>
                 </core-card>
                 <core-card id="core_card" layout vertical>
                     <h3>Raw Data</h3>
@@ -121,7 +132,6 @@
                                 </tr>
                             </template>
                         </tbody>
-
                     </table>
                 </core-card>
             </div>
